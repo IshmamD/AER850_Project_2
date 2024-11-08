@@ -6,4 +6,7 @@ AER850 Project 2
 500956014
 Section 2
 """
-#test
+
+#STEP 1
+
+
