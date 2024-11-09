@@ -27,4 +27,22 @@ train_datagen = ImageDataGenerator(
         zoom_range=0.2,
         horizontal_flip=True)
 
+train_generator = train_datagen.flow_from_directory(
+    train_dir,
+    target_size=input_shape[:2],
+    batch_size=32,
+    class_mode='categorical')
+
+
+val_datagen = ImageDataGenerator(
+        rescale = 1./255,
+        shear_range=0.2,
+        zoom_range=0.2,
+        horizontal_flip=True)
+
+val_generator = train_datagen.flow_from_directory(
+    val_dir,
+    target_size=input_shape[:2],
+    batch_size=32,
+    class_mode='categorical')
 
