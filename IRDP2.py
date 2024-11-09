@@ -23,6 +23,7 @@ val_dir = './P2D/Data/valid'
 test_dir = './P2D/Data/test'
 
 train_datagen = ImageDataGenerator(
+        rescale = 1./255,
         shear_range=0.2,
         zoom_range=0.2,
         horizontal_flip=True)
@@ -34,13 +35,9 @@ train_generator = train_datagen.flow_from_directory(
     class_mode='categorical')
 
 
-val_datagen = ImageDataGenerator(
-        rescale = 1./255,
-        shear_range=0.2,
-        zoom_range=0.2,
-        horizontal_flip=True)
+val_datagen = ImageDataGenerator(rescale = 1./255)
 
-val_generator = train_datagen.flow_from_directory(
+val_generator = val_datagen.flow_from_directory(
     val_dir,
     target_size=input_shape[:2],
     batch_size=32,
