@@ -43,7 +43,7 @@ val_generator = val_datagen.flow_from_directory(
     batch_size=32,
     class_mode='categorical')
 
-#STEP 2
+#STEP 2 and 3
 
 model = models.Sequential()
 
@@ -64,3 +64,11 @@ model.add(layers.Dense(3, activation='softmax'))
 
 model.summary()
 
+model.compile(
+    optimizer='adam',
+    loss='categorical_crossentropy',
+    metrics=['accuracy'])
+
+
+
+#STEP 4
