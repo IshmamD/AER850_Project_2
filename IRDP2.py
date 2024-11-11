@@ -12,7 +12,7 @@ import pandas as pd
 from keras import layers
 from keras import models
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-
+import matplotlib.pyplot as plt
 
 #STEP 1
 
@@ -59,7 +59,7 @@ model.add(layers.MaxPooling2D((2, 2)))
 model.add(layers.Flatten())
 
 model.add(layers.Dense(64, activation='relu'))
-model.add(layers.Dropout())
+model.add(layers.Dropout(0.5))
 model.add(layers.Dense(3, activation='softmax'))
 
 model.summary()
@@ -73,5 +73,12 @@ model.compile(
 
 #STEP 4
 
-history = model.fit(train_generator, validation_data = val_generator, epochs=20)
+history = model.fit(train_generator, validation_data = val_generator, epochs=10)
+
+plt.plot(history.history['accuracy'], label='Accuracy')
+plt.plot(history.history['val_accuracy'], label = 'val_accuracy')
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy')
+plt.legend(loc='lower right')
+plt.show()
 
