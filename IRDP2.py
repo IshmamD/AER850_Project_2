@@ -73,7 +73,7 @@ model.compile(
 
 #STEP 4
 
-history = model.fit(train_generator, validation_data = val_generator, epochs=10)
+history = model.fit(train_generator, validation_data = val_generator, epochs=9)
 
 plt.plot(history.history['accuracy'], label='Accuracy')
 plt.plot(history.history['val_accuracy'], label = 'val_accuracy')
