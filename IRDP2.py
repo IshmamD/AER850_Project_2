@@ -82,3 +82,11 @@ plt.ylabel('Accuracy')
 plt.legend(loc='lower right')
 plt.show()
 
+plt.figure()
+plt.plot(history.history['loss'], label='loss')
+plt.plot(history.history['val_loss'], label='val_loss')
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+plt.legend(loc='upper right')
+plt.show()
+
