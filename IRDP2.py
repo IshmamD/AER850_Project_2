@@ -72,3 +72,6 @@ model.compile(
 
 
 #STEP 4
+
+history = model.fit(train_generator, validation_data = val_generator, epochs=20)
+
