@@ -90,3 +90,4 @@ plt.ylabel('Loss')
 plt.legend(loc='upper right')
 plt.show()
 
+model.save('./trained_model.h5')
