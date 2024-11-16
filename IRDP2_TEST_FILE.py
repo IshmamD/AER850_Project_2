@@ -16,5 +16,7 @@ from tensorflow.keras.preprocessing import image
 model = load_model('./trained_model.h5')
 
 
-test_dir = './P2D/Data/test'
+test_dir = './P2D/Data/test/missing-head/IMG_20230511_100229_jpg.rf.08e4a8127f1d2057801e4a7087862f85.jpg'
 
+img = image.load_img(test_dir,target_size=(500,500))
+x = image.img_to_array(img)
