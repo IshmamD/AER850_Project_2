@@ -33,7 +33,24 @@ print(predicted_class)
 plt.figure()
 plt.imshow(img)
 
-prediction = 'Crack: 0.05% \nMissing-Head: 99.93% \nPaint-off: 0.02%'
+prediction = 'Crack: 0.05% \nMissing-Head: 99.93% \nPaint-off: 0.02%' # I ran the code once to see the values and
+#manually converted the scientific notation to more readable percentages
 
 plt.text(60,100,prediction,color='green')
 plt.axis('off')
+
+model2 = load_model('./trained_model2.h5')
+prediction2 = model2.predict(x)
+print(prediction2)
+predicted_index2 = np.argmax(prediction2[0])
+print(predicted_index2)
+predicted_class2 = classes[predicted_index2]
+print(predicted_class2)
+
+
+plt.figure()
+plt.imshow(img)
+plt.axis('off')
+
+prediction2 =  'Crack: 3.04% \nMissing-Head: 95.63% \nPaint-off: 1.33%'
+plt.text(60,100,prediction2,color='green')
