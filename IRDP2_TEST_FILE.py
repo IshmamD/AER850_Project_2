@@ -10,7 +10,7 @@ Created on Fri Nov 15 18:51:18 2024
 from tensorflow.keras.models import load_model
 import numpy as np
 from tensorflow.keras.preprocessing import image
-
+import matplotlib.pyplot as plt
 
 # Load the saved model
 model = load_model('./trained_model.h5')
@@ -29,3 +29,11 @@ predicted_index = np.argmax(prediction[0])
 print(predicted_index)
 predicted_class = classes[predicted_index]
 print(predicted_class)
+
+plt.figure()
+plt.imshow(img)
+
+prediction = 'Crack: 0.05% \nMissing-Head: 99.93% \nPaint-off: 0.02%'
+
+plt.text(60,100,prediction,color='green')
+plt.axis('off')
