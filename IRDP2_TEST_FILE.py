@@ -21,4 +21,11 @@ test_dir = './P2D/Data/test/missing-head/IMG_20230511_100229_jpg.rf.08e4a8127f1d
 img = image.load_img(test_dir,target_size=(500,500))
 x = image.img_to_array(img)
 x = x/255
-
+x = np.expand_dims(x, axis=0)
+classes = ['crack', 'missing-head', 'paint-off']
+prediction = model.predict(x)
+print(prediction)
+predicted_index = np.argmax(prediction[0])
+print(predicted_index)
+predicted_class = classes[predicted_index]
+print(predicted_class)
