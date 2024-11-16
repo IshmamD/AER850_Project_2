@@ -20,3 +20,5 @@ test_dir = './P2D/Data/test/missing-head/IMG_20230511_100229_jpg.rf.08e4a8127f1d
 
 img = image.load_img(test_dir,target_size=(500,500))
 x = image.img_to_array(img)
+x = x/255
+
