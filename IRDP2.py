@@ -44,7 +44,7 @@ val_generator = val_datagen.flow_from_directory(
     class_mode='categorical')
 
 #STEP 2 and 3
-
+"""
 model = models.Sequential()
 
 model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(500, 500, 3)))
@@ -91,25 +91,25 @@ plt.legend(loc='upper right')
 plt.show()
 
 model.save('./trained_model.h5')
-
+"""
 #VARIATION 2
 
 model2 = models.Sequential()
 
-model.add(layers.Conv2D(32, (5, 5), activation='relu', input_shape=(500, 500, 3)))
-model.add(layers.MaxPooling2D((2, 2)))
+model2.add(layers.Conv2D(32, (5, 5), activation='relu', input_shape=(500, 500, 3)))
+model2.add(layers.MaxPooling2D((2, 2)))
 
-model.add(layers.Conv2D(32, (3, 3), activation='relu'))
-model.add(layers.MaxPooling2D((2, 2)))
+model2.add(layers.Conv2D(32, (3, 3), activation='relu'))
+model2.add(layers.MaxPooling2D((2, 2)))
 
-model.add(layers.Conv2D(64, (2, 2), activation='relu'))
-model.add(layers.MaxPooling2D((2, 2)))
+model2.add(layers.Conv2D(64, (2, 2), activation='relu'))
+model2.add(layers.MaxPooling2D((2, 2)))
 
-model.add(layers.Flatten())
+model2.add(layers.Flatten())
 
-model.add(layers.Dense(64, activation='relu'))
-model.add(layers.Dropout(0.5))
-model.add(layers.Dense(3, activation='softmax'))
+model2.add(layers.Dense(64, activation='relu'))
+model2.add(layers.Dropout(0.5))
+model2.add(layers.Dense(3, activation='softmax'))
 
 model2.summary()
 
