@@ -91,3 +91,48 @@ plt.legend(loc='upper right')
 plt.show()
 
 model.save('./trained_model.h5')
+
+#VARIATION 2
+
+model2 = models.Sequential()
+
+model.add(layers.Conv2D(32, (5, 5), activation='relu', input_shape=(500, 500, 3)))
+model.add(layers.MaxPooling2D((2, 2)))
+
+model.add(layers.Conv2D(32, (3, 3), activation='relu'))
+model.add(layers.MaxPooling2D((2, 2)))
+
+model.add(layers.Conv2D(64, (2, 2), activation='relu'))
+model.add(layers.MaxPooling2D((2, 2)))
+
+model.add(layers.Flatten())
+
+model.add(layers.Dense(64, activation='relu'))
+model.add(layers.Dropout(0.5))
+model.add(layers.Dense(3, activation='softmax'))
+
+model2.summary()
+
+model2.compile(
+    optimizer='adam',
+    loss='categorical_crossentropy',
+    metrics=['accuracy'])
+
+history2 = model2.fit(train_generator, validation_data = val_generator, epochs=9)
+
+plt.plot(history2.history['accuracy'], label='Accuracy')
+plt.plot(history2.history['val_accuracy'], label = 'val_accuracy')
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy')
+plt.legend(loc='lower right')
+plt.show()
+
+plt.figure()
+plt.plot(history2.history['loss'], label='loss')
+plt.plot(history2.history['val_loss'], label='val_loss')
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+plt.legend(loc='upper right')
+plt.show()
+
+model.save('./trained_model2.h5')
