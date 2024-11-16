@@ -44,7 +44,7 @@ val_generator = val_datagen.flow_from_directory(
     class_mode='categorical')
 
 #STEP 2 and 3
-"""
+
 model = models.Sequential()
 
 model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(500, 500, 3)))
@@ -91,7 +91,7 @@ plt.legend(loc='upper right')
 plt.show()
 
 model.save('./trained_model.h5')
-"""
+
 #VARIATION 2
 
 model2 = models.Sequential()
@@ -119,7 +119,7 @@ model2.compile(
     metrics=['accuracy'])
 
 history2 = model2.fit(train_generator, validation_data = val_generator, epochs=9)
-
+plt.figure()
 plt.plot(history2.history['accuracy'], label='Accuracy')
 plt.plot(history2.history['val_accuracy'], label = 'val_accuracy')
 plt.xlabel('Epoch')
@@ -135,4 +135,4 @@ plt.ylabel('Loss')
 plt.legend(loc='upper right')
 plt.show()
 
-model.save('./trained_model2.h5')
+model2.save('./trained_model2.h5')
